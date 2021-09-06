@@ -2171,8 +2171,6 @@ const PDFViewerApplication = {
 exports.PDFViewerApplication = PDFViewerApplication;
 let validateFileURL;
 {
-  const HOSTED_VIEWER_ORIGINS = ["null", "http://prevasio.github.io", "https://prevasio.github.io"];
-
   validateFileURL = function (file) {
     if (file === undefined) {
       return;
@@ -2180,10 +2178,6 @@ let validateFileURL;
 
     try {
       const viewerOrigin = new URL(window.location.href).origin || "null";
-
-      if (HOSTED_VIEWER_ORIGINS.includes(viewerOrigin)) {
-        return;
-      }
 
       const {
         origin,
